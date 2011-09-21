@@ -1,0 +1,30 @@
+# Amazing Maps (Project Title)
+
+## Examples
+
+### Use on a specfic element
+
+    $("#myMap").amazingMap({
+      options: {
+        routeEnd: "Elsasser Straße 27, 28209 Bremen"
+      },
+      marker: {
+          title: "Vortrieb – Büro für Netzpräsens",
+          description: "<p>Where we work.</p>",
+          position: [8,50]
+        }
+      }
+    });
+
+
+### use by global definition
+
+    var maps = {
+      "#myFirstMap" : {
+        markers: [
+          {
+            title: "Phidelity",
+          }
+        ]
+      }
+    }
