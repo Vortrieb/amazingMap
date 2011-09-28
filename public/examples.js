@@ -48,8 +48,22 @@ $(function() {
   });
 
   $('#zoomedToBounds')
-    .amazingMap({
-      markers: [markers.vortrieb, markers.domsheide],
-      bounds: true
+  .amazingMap({
+    markers: [markers.vortrieb, markers.domsheide],
+    bounds: true
+  });
+
+
+  $('#sandbox').amazingMap({
+    marker: markers.vortrieb
+  });
+
+  setTimeout(function() {
+    $('#sandbox').amazingMap('setCenter', 'Bremen, Germany');
+    $('#sandbox').amazingMap('setZoom', 5);
+    $('#sandbox').amazingMap('addMarker', {
+      position: 'Hamburg'
     });
+  }, 2000);
+
 });
