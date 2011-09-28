@@ -23,4 +23,33 @@ $(function() {
       }
     ]
   });
+
+  var markers = {
+    vortrieb: {
+      title: "Vortrieb",
+      description: "<h2>Vortrieb</h2><p>Büro für Netzpräsens</p>",
+      position: "Elsasser Straße 27, 28211 Bremen"
+    },
+    domsheide: {
+      title: "Domsheide",
+      description: "Domsheide in Bremen",
+      position: "Domsheide, Bremen"
+    }
+  };
+
+  $('#markerByAddress').amazingMap({
+    marker: markers.vortrieb
+  });
+
+  $('#markerByAddressAndCenteredByAddress').amazingMap({
+    marker: markers.vortrieb,
+    center: markers.vortrieb.position,
+    zoom: 8
+  });
+
+  $('#zoomedToBounds')
+    .amazingMap({
+      markers: [markers.vortrieb, markers.domsheide],
+      bounds: true
+    });
 });

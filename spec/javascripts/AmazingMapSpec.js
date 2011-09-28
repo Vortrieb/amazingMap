@@ -28,7 +28,13 @@ var google = function() { };
       event: {
         addListener: function(element, event, callback) {
         }
+      },
+      Geocoder: function() {
       }
+    };
+
+    google.maps.Geocoder.prototype.geocode = function() {
+    
     };
 //}}}
 
@@ -109,4 +115,20 @@ describe('jQuery.amazingMap()', function() {
       expect(google.maps.event.addListener).toHaveBeenCalled();
     });//}}}
   });//}}}
+  describe('amazingMap#translateAddress with valid argument', function() {
+    var result;
+    beforeEach(function() {
+      result = $('#map').amazingMap('translateAddress', 'Elsasser Straße 27, 28211 Bremen');
+    });
+
+    it('should return an array with 2 elements', function() {
+      expect(result.length).toBe(2);
+    });
+  });
+
+  xdescribe('a map with a marker without infowindow');
+  xdescribe('a map without marker centered via address');
+  xdescribe('a map with routeFrom defined');
+  xdescribe('a map with a routeTo defined');
+  xdescribe('a map with a routeFrom and routeTo defined');
 });
