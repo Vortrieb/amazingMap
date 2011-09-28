@@ -45,6 +45,13 @@ We can even add a marker later on.
       position: 'Hamburg'
     }); // Yeah, that's really all that is mandatory for a marker
 
+## Roadmap / Todos
+
+- add an Attribute "icon" to the Marker-JSON: URL to an image that will be used
+  instead of the default marker
+- add support for routes (routeFrom and routeTo attribute)
+- add support for custom Map-Styles
+
 ## LICENSE
 
 TODO
