@@ -5,6 +5,9 @@
  */
 
 (function($) {
+  /**
+   * Add the Plugin to jQuery
+   */
   $.fn.amazingMap = function(method) {
     var map      = undefined,
         geocoder = new google.maps.Geocoder(),
@@ -80,28 +83,46 @@
        *
        * @param JSON marker a hash for a marker
        */
-      addMarker: function(markerOptions) {//{{{
-        if (typeof(markerOptions.position) == 'string') {
+      addMarker: function(options) {//{{{
+        if (typeof(options.position) == 'string') {
           // A string was given. Propably an address - we're going to hit the
           // Google-API and translate the address and call this method again
-          methods.translateToLatLng(markerOptions.position, function(lat, lng) {
-            $.extend(markerOptions, { position: [lat, lng] });
-            methods.addMarker(markerOptions);
+          methods.translateToLatLng(options.position, function(lat, lng) {
+            $.extend(options, { position: [lat, lng] });
+            methods.addMarker(options);
           });
         } else {
-          var latlng, marker, infowindow;
-
-          latlng = methods.createLatLng( markerOptions.position );
-
-          // actually add the marker to the map
-          marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: markerOptions.title
-          });
+          var marker,
+              infowindow,
+              markerOptions = {},
+              latlng = methods.createLatLng( options.position );
 
           // extend the map's bounds for zooming purposes
           markerBounds.extend(latlng);
+
+          markerOptions = {
+            position: latlng,
+            map: map,
+            title: options.title
+          };
+
+          // google treats a string as the value for icon as a URL to the
+          // image that should be used for the icon - just as we want it
+          if(options.icon && typeof(options.icon) == 'string') {
+            markerOptions.icon = options.icon;
+          }
+
+          // use a custom MarkerImage for the Marker
+          if(options.icon)
+            markerOptions.icon = methods.createIcon(options.icon);
+
+          // usa a custom shadow (which is just another Marker Image) for the
+          // Marker
+          if(options.icon && options.icon.shadow) 
+            markerOptions.shadow = methods.createIcon(options.icon.shadow);
+
+          // actually add the marker to the map
+          marker = new google.maps.Marker(markerOptions);
 
           // fit the map into the marker's bounds
           if(settings.bounds) {
@@ -110,7 +131,7 @@
 
           // create an infowindow with the given description
           infowindow = new google.maps.InfoWindow({
-            content: markerOptions.description
+            content: options.description
           });
 
           // make the marker clickable
@@ -122,6 +143,16 @@
         return this;
       },//}}}
 
+      /**
+       * a helper method to create an instance of google's MarkerImage-Class
+       *
+       * @param JSON options 
+       */
+      createIcon: function(options) {
+        return new google.maps.MarkerImage(
+          (typeof(options) == 'string') ? options : options.url
+        );
+      },
       /**
        * Zoom and center the map so that every marker on the map is visible. If
        * relativeZoomLevel is defined it will zoom out/in by the number given.
