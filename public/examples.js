@@ -83,6 +83,27 @@ $(function() {
     zoom: 10
   });
 
+  $('#mapRoutedTo').amazingMap({
+    center: "Bremen",
+    marker: "Elsasser Straße 27, 28209 Bremen",
+    routeTo: "Elsasser Straße 27, 28209 Bremen",
+    zoom: 10,
+    style: [
+      {
+        stylers: [
+          { lightness: -45 },
+          { saturation: -100 }
+        ]
+      },{
+        featureType: "road",
+        stylers: [ { lightness: 100 } ]
+      },{
+        elementType: "labels",
+        stylers: [ { visibility: "off" } ]
+      }
+    ]
+  });
+
   $('#sandbox').amazingMap({
     marker: markers.vortrieb
   });
