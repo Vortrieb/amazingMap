@@ -27,7 +27,7 @@ $(function() {
   var markers = {
     vortrieb: {
       title: "Vortrieb",
-      description: "<h2>Vortrieb</h2><p>Büro für Netzpräsens</p>",
+      description: "<p><strong>Vortrieb</strong> – Büro für Netzpräsens</p>",
       position: "Elsasser Straße 27, 28211 Bremen",
       icon: "http://placekitten.com/20/20"
     },
@@ -60,6 +60,28 @@ $(function() {
     bounds: true
   });
 
+  $('#styledMap').amazingMap({
+    style: [ {
+        featureType: "all",
+        elementType: "all",
+        stylers: [ { hue: "#009eff" } ]
+      },{
+        featureType: "landscape",
+        elementType: "all",
+        stylers: [ { lightness: 100 } ]
+      },{
+        featureType: "poi.business",
+        elementType: "all",
+        stylers: [ { lightness: 100 } ]
+      },{
+        featureType: "water",
+        elementType: "all",
+        stylers: [ { lightness: -20 } ]
+      }
+    ],
+    center: "Bremen",
+    zoom: 10
+  });
 
   $('#sandbox').amazingMap({
     marker: markers.vortrieb
