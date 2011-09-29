@@ -105,7 +105,7 @@ amazingMap already supports route-searches:
 
 ## Roadmap / Todos
 
-## Documentation
+### Documentation
 - create a github-page
 - provide more examples
 - create a thorough API
