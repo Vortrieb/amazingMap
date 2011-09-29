@@ -28,12 +28,19 @@ $(function() {
     vortrieb: {
       title: "Vortrieb",
       description: "<h2>Vortrieb</h2><p>Büro für Netzpräsens</p>",
-      position: "Elsasser Straße 27, 28211 Bremen"
+      position: "Elsasser Straße 27, 28211 Bremen",
+      icon: "http://placekitten.com/20/20"
     },
+
     domsheide: {
       title: "Domsheide",
       description: "Domsheide in Bremen",
-      position: "Domsheide, Bremen"
+      position: "Domsheide, Bremen",
+
+      icon: {
+        url: "http://placekitten.com/10/10",
+        shadow: "http://placekitten.com/20/20"
+      }
     }
   };
 
