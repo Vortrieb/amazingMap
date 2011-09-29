@@ -16,6 +16,12 @@ TODO
 
 ### Initialization
 
+We just need a container for our map:
+
+    <div id="myMap" style="width:320px;height:240px"></div>
+
+To transform the container into a map, simply:
+
     $('#myMap').amazingMap();
 
 Only this line is needed to initialize a google map. Though there are no
@@ -41,7 +47,7 @@ map.
 We can even add a marker later on. 
     
     // Assuming the example code from above 
-    $('#sandbox').amazingMap('addMarker', {
+    $('#myMap').amazingMap('addMarker', {
       position: 'Hamburg'
     }); // Yeah, that's really all that is mandatory for a marker
 
