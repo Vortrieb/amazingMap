@@ -53,10 +53,11 @@ We can even add a marker later on.
 
 ## Roadmap / Todos
 
-- add an Attribute "icon" to the Marker-JSON: URL to an image that will be used
-  instead of the default marker
 - add support for routes (routeFrom and routeTo attribute)
 - add support for custom Map-Styles
+- add support for zoom level relative to bounds
+- faciliate installation routine by automatically load google-map-api if
+  necessary
 
 ## LICENSE
 
