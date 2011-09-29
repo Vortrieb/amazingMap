@@ -19,7 +19,12 @@ embracing the jQuery-Syntax and be able to control the map externally.
 
 ## Installation
 
-TODO
+Make sure you include the `amazing_map.js` after jquery and the google-map
+api; like this:
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript" ></script>
+    <script src="path/to/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="path/to/amazing_maps.js" type="text/javascript" charset="utf-8"></script>
 
 ## Usage
 
@@ -96,6 +101,11 @@ amazingMap already supports route-searches:
     });
 
 ## Roadmap / Todos
+
+## Documentation
+- create a github-page
+- provide more examples
+- create a thorough API
 
 ### Interface
 - options to manipulate the ui of google-maps (buttons etcpp)
