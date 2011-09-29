@@ -1,6 +1,9 @@
+
 # AmazingMap
 
 A simple jQuery-Wrapper for the Google-API.
+
+<div id="amazingMap" style="width:100%;height:100px;"></div>
 
 ### In Development
 
@@ -145,3 +148,14 @@ amazingMap already supports route-searches:
     THE SOFTWARE.
 
 >  vim: set ts=8 sw=2 tw=79 ft=markdown:
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script
+src="https://raw.github.com/nilsr/amazingMap/master/public/javascripts/amazing_maps.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+$(function() {
+  $('#amazingMap').amazingMap();
+});
+</script>
