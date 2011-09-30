@@ -91,7 +91,34 @@ To use a custom marker simply provide the url to the icon:
       }
     })
 
+### Styles
 
+Since the third iteration of the google API supports styled map, so does
+amazingMap:
+
+    $('#mapRoutedTo').amazingMap({
+      center: "Bremen",
+      zoom: 10,
+      style: [
+        {
+          stylers: [
+            { lightness: -45 },
+            { saturation: -100 }
+          ]
+        },{
+          featureType: "road",
+          stylers: [ { lightness: 100 } ]
+        },{
+          elementType: "labels",
+          stylers: [ { visibility: "off" } ]
+        }
+      ]
+    });
+
+The way to define styles looks a bit confusing at first, but it is just what
+google's [style-wizard][] gives us when exporting as JSON.
+
+[style-wizard]: http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
 ### Routes
 
 amazingMap already supports route-searches:
