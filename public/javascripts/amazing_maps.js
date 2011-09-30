@@ -97,10 +97,14 @@
        *
        * @param JSON options where should the route be generated to?
        */
-      addRouteForm: function(options) {
+      addRouteForm: function(options) {//{{{
         var id = $this.attr('id') + '-routeForm',
+        // TODO: Refactor this ternary mess
             destination = (typeof(options) == 'string') 
-                            ? options : options.destination;
+                            ? options 
+                            : ( options.destination )
+                              ? options.destination
+                              : options.position;
 
         // Settting up the needed services - if it did not yet happen
         if(!directionsDisplay)
@@ -140,7 +144,7 @@
         });
 
         return this;
-      },
+      },//}}}
       /**
        * set the style for the map. Best used with google's style wizard.
        * Expects options to be the generated JSON anyway.
