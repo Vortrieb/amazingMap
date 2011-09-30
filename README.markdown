@@ -50,6 +50,8 @@ place a Marker on the map, just pass it to amazingMap();
         title: "Vortrieb",
         description: "<h2>Vortrieb</h2><p>Büro für Netzpräsens</p>",
         position: "Elsasser Straße 27, 28211 Bremen"
+        // Note that you can define the position with lat and lng as well:
+        // position: [12.3, -45.6],
       }
     });
 
