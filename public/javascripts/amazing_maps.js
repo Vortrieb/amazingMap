@@ -98,13 +98,13 @@
        * @param JSON options where should the route be generated to?
        */
       addRouteForm: function(options) {//{{{
-        var id = $this.attr('id') + '-routeForm',
-        // TODO: Refactor this ternary mess
-            destination = (typeof(options) == 'string') 
-                            ? options 
-                            : ( options.destination )
-                              ? options.destination
-                              : options.position;
+        var id = $this.attr('id') + '-routeForm', 
+            destination;
+        if(typeof(options) == 'string') {
+          destination = options;
+        } else if(typeof( options.destination ) == 'object') {
+          destination = options.destination.position;
+        }
 
         // Settting up the needed services - if it did not yet happen
         if(!directionsDisplay)
@@ -123,7 +123,6 @@
 
         directionsDisplay.setMap(map);
         directionsDisplay.setPanel(document.getElementById(id));
-
 
         // TODO: refactor this (create a callback for the event)
         $('form', '#'+id).live('submit',function(event) {

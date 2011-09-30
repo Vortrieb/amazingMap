@@ -85,8 +85,11 @@ $(function() {
 
   $('#mapRoutedTo').amazingMap({
     center: "Bremen",
-    marker: "Elsasser Straße 27, 28209 Bremen",
-    routeTo: "Elsasser Straße 27, 28209 Bremen",
+    marker: markers.vortrieb,
+    routeTo: {
+      destination: markers.vortrieb,
+      label: "Zu Vortrieb hin, von:"
+    },
     zoom: 10,
     style: [
       {
